@@ -1,4 +1,4 @@
-# RACI Plateforme - Offre Kubernetes
+# RACI Plateforme : Offre Kubernetes
 
 > Modèle type, issu du pilotage d'une offre Kubernetes critique (secteur énergie, on-prem + AWS).
 > Anonymisé et réutilisable pour toute plateforme interne (cloud, data, IA).
@@ -6,15 +6,18 @@
 ## Pourquoi ce document
 
 Sur une plateforme partagée, la première source de friction n'est presque jamais technique :
-c'est l'absence de réponse claire à trois questions simples - **qui décide, qui exécute, qui est informé**.
+c'est l'absence de réponse claire à trois questions simples, **qui décide, qui exécute, qui est informé**.
 Ce RACI couvre les 4 flux qui, sur le terrain, concentrent le plus d'ambiguïté.
 
-| Légende | |
-|---|---|
-| **R** | Responsible - exécute |
-| **A** | Accountable - rend compte, valide en dernier ressort (un seul par ligne) |
-| **C** | Consulted - sollicité avant décision |
-| **I** | Informed - tenu informé après décision |
+| Lettre | Anglais | Français |
+|---|---|---|
+| **R** | Responsible | **Réalisateur**, exécute la tâche, sous la direction d'un A. Chaque ligne a au moins un R. |
+| **A** | Accountable | **Approbateur**, rend des comptes, valide en dernier ressort. C'est le véritable responsable, un seul par ligne. |
+| **C** | Consulted | **Consulté**, expert sollicité avant décision ; l'A reste libre de suivre son avis ou non. |
+| **I** | Informed | **Informé**, tenu au courant après décision, même sans intervenir directement. |
+
+> Le piège classique : traduire *Responsible* par "responsable" en français. C'est trompeur, le
+> véritable responsable au sens décisionnel est l'**Approbateur (A)**, pas le Réalisateur (R).
 
 ---
 
@@ -62,8 +65,15 @@ Ce RACI couvre les 4 flux qui, sur le terrain, concentrent le plus d'ambiguïté
 
 Un RACI figé sans revue devient obsolète en quelques mois. Deux règles d'usage :
 
-- **Une seule case "A" par ligne.** Si deux équipes se disputent l'accountability, c'est le signal qu'une clarification managériale est nécessaire - pas une case à cocher.
-- **Revue trimestrielle.** Les responsabilités évoluent avec la maturité de la plateforme (self-service croissant, nouvelles équipes consommatrices). Un RACI non révisé masque les dérives plutôt qu'il ne les prévient.
+- **Un seul Approbateur (A) par ligne.** Si deux équipes se disputent l'approbation, c'est le
+  signal qu'une clarification managériale est nécessaire, pas une case à cocher.
+- **Revue trimestrielle.** Les responsabilités évoluent avec la maturité de la plateforme
+  (self-service croissant, nouvelles équipes consommatrices). Un RACI non révisé masque les
+  dérives plutôt qu'il ne les prévient.
+
+Il n'est pas rare qu'une même personne cumule plusieurs rôles sur une même activité (par exemple
+A et R), elle est alors son propre approbateur sur cette tâche, ce qui est acceptable tant que
+ça reste l'exception, pas la norme sur les activités à enjeu.
 
 ---
-*Extrait du K8s Platform Governance Lab - [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
+*Extrait du K8s Platform Governance Lab : [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
