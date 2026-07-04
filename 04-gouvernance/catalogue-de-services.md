@@ -1,4 +1,4 @@
-# Catalogue de services — Template
+# Catalogue de services - Template
 
 > Une plateforme n'a de valeur que si les équipes savent comment l'utiliser sans dépendre d'un
 > héros disponible au bon moment. Ce template rend l'offre plateforme lisible en une page.
@@ -10,7 +10,7 @@ existe. Le catalogue répond à une question plus en amont : **quelles offres ex
 avec quels prérequis, et qui est responsable après la mise en service.** Sans ça, une équipe qui
 a un besoin ne sait même pas si la plateforme le couvre déjà.
 
-## Le template — une fiche par service
+## Le template - une fiche par service
 
 ```
 ## [Nom du service]
@@ -23,7 +23,7 @@ a un besoin ne sait même pas si la plateforme le couvre déjà.
 - Prérequis 1
 - Prérequis 2
 
-**Comment y accéder** : (lien vers le formulaire / processus de demande —
+**Comment y accéder** : (lien vers le formulaire / processus de demande -
 voir gouvernance-des-demandes.md)
 
 **Délai indicatif** : (ex : self-service immédiat / 2 jours / 1 semaine)
@@ -37,7 +37,7 @@ voir gouvernance-des-demandes.md)
 attentes mal calibrées)
 ```
 
-## Exemple rempli — Provisioning de namespace
+## Exemple rempli - Provisioning de namespace
 
 ```
 ## Provisioning de namespace applicatif
@@ -62,21 +62,21 @@ la plateforme.
   instrumentation de ses propres alertes
 
 **Limites connues** : ne couvre pas le dimensionnement au-delà des quotas
-standard — voir catégorie "Spécifique" dans gouvernance-des-demandes.md.
+standard - voir catégorie "Spécifique" dans gouvernance-des-demandes.md.
 ```
 
 ## L'erreur à éviter en construisant ce catalogue
 
 Vouloir tout documenter d'un coup. Un catalogue incomplet mais à jour est plus utile qu'un
 catalogue exhaustif mais figé depuis six mois. La bonne pratique : démarrer avec les 3 à 5 services
-les plus demandés, et ajouter une fiche uniquement quand une demande répétée le justifie — pas de
+les plus demandés, et ajouter une fiche uniquement quand une demande répétée le justifie - pas de
 façon anticipative et théorique.
 
 ## Le test pour savoir si le catalogue fonctionne
 
 Une nouvelle équipe qui rejoint le périmètre de la plateforme doit pouvoir répondre seule, à partir
 du catalogue, à la question : *"Est-ce que mon besoin est déjà couvert, et si oui par où je
-commence ?"* — sans avoir besoin de connaître quelqu'un dans l'équipe plateforme pour le savoir.
+commence ?"* - sans avoir besoin de connaître quelqu'un dans l'équipe plateforme pour le savoir.
 
 ---
-*Extrait du K8s Platform Governance Lab — [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
+*Extrait du K8s Platform Governance Lab - [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
