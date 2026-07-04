@@ -24,19 +24,19 @@ interne (cloud, data, IA).
 
 ## 📂 Contenu
 
-### 1. [`01-visual-explorer/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/01-visual-explorer) : Comprendre Kubernetes visuellement
+### 1. [`01-visual-explorer/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/01-visual-explorer) : Comprendre Kubernetes visuellement
 Démo interactive orientée DSI/managers : Control Plane vs Workers, composants cliquables,
-sans prérequis technique. [Voir la démo](https://eddyazebaze.github.io/kubernetes-lab-by-eddy/01-visual-explorer/)
+sans prérequis technique. [Voir la démo](https://eddyazebaze.github.io/k8s-platform-governance-lab/01-visual-explorer/)
 
-### 2. [`02-bootcamp/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/02-bootcamp) : Bootcamp Kubernetes (1 jour)
+### 2. [`02-bootcamp/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/02-bootcamp) : Bootcamp Kubernetes (1 jour)
 Programme, checklist et notes de montée en compétences : installer un cluster local, déployer
 une app simple, comprendre namespaces/RBAC/NetworkPolicies.
 
-### 3. [`03-manifests/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/03-manifests) : Manifests réutilisables
+### 3. [`03-manifests/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/03-manifests) : Manifests réutilisables
 Base de manifests prêts à l'emploi : namespaces (dev/prod/monitoring), RBAC (roles/rolebindings),
 NetworkPolicies (segmentation et sécurité).
 
-### 4. [`04-gouvernance/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/04-gouvernance) : Qui décide quoi
+### 4. [`04-gouvernance/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/04-gouvernance) : Qui décide quoi
 | Artefact | Description |
 |---|---|
 | `raci-plateforme.md` | RACI type d'une plateforme K8s : demandes, MEP, incidents, certificats, alerting |
@@ -45,12 +45,12 @@ NetworkPolicies (segmentation et sécurité).
 | `gouvernance-des-demandes.md` | Processus d'onboarding et d'arbitrage des demandes projets |
 | `catalogue-de-services.md` | Template de catalogue : offre lisible, prérequis, délais, responsabilités post-MEP |
 
-### 5. [`05-reseau-et-multi-tenancy/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/05-reseau-et-multi-tenancy) : Gouvernance réseau partagé
+### 5. [`05-reseau-et-multi-tenancy/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/05-reseau-et-multi-tenancy) : Gouvernance réseau partagé
 | Artefact | Description |
 |---|---|
 | `gateway-api-gouvernance.md` | Qui gouverne le routage et l'exposition réseau sur une plateforme mutualisée |
 
-### 6. [`06-ia-plateforme/`](https://github.com/Eddyazebaze/kubernetes-lab-by-eddy/tree/main/06-ia-plateforme) : Gouverner l'IA en production
+### 6. [`06-ia-plateforme/`](https://github.com/Eddyazebaze/k8s-platform-governance-lab/tree/main/06-ia-plateforme) : Gouverner l'IA en production
 | Artefact | Description |
 |---|---|
 | `vllm-gouvernance-ia.md` | Qui valide, qui paie, qui trace un déploiement de modèle IA sur une plateforme partagée |
@@ -66,7 +66,5 @@ les deux moitiés de cette phrase : la partie technique (dossiers 1-3) et la par
 
 ---
 
-Projet Augmenté® : Eddy AZEBAZE (PMP®, CISM®)
+Projet Augmenté® : Eddy AZEBAZE (PMP®, CISM®, AWS Solutions Architect Associate)
 [LinkedIn](https://linkedin.com/in/eddy-azebaze-pmp-cism) · [Prendre 30 min](https://calendly.com/eddy-azebaze-proton/30min)
-# kubernetes-lab-by-eddy
-Rendre Kubernetes concret : démos interactives, manifests essentiels, guides terrain. Projet Augmenté®
