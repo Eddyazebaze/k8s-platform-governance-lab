@@ -1,0 +1,76 @@
+# networkpolicies.yaml
+# Segmentation réseau de base - deny-by-default puis autorisations explicites.
+# Complète 05-reseau-et-multi-tenancy/gateway-api-gouvernance.md côté
+# routage externe ; ici on couvre la segmentation interne au cluster.
+
+---
+# Politique par défaut : tout le trafic est refusé, sauf autorisation explicite
+# (principe de base d'une plateforme auditable : aucune communication implicite)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: prod
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+---
+# Autorisation : le namespace monitoring peut scraper les pods de prod
+# (pour Prometheus/observabilité)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-monitoring-scrape
+  namespace: prod
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              environment: shared
+      ports:
+        - protocol: TCP
+          port: 9090
+---
+# Autorisation : communication interne entre pods d'un même namespace prod
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-intra-namespace
+  namespace: prod
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector: {}
+---
+# Autorisation : sortie DNS (nécessaire même en deny-by-default)
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-dns-egress
+  namespace: prod
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+  egress:
+    - to: []
+      ports:
+        - protocol: UDP
+          port: 53
+        - protocol: TCP
+          port: 53
+
+# Note d'usage :
+# Le deny-by-default casse volontairement tout ce qui n'est pas déclaré.
+# C'est un choix de gouvernance assumé : mieux vaut un incident de
+# connectivité détecté en dev qu'une communication non maîtrisée
+# découverte lors d'un audit de sécurité.

@@ -1,0 +1,82 @@
+# rbac.yaml
+# Roles et RoleBindings type - traduction technique du RACI défini
+# dans 04-gouvernance/raci-plateforme.md
+
+---
+# Rôle "développeur applicatif" - dev uniquement, pas d'accès prod
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: app-developer
+  namespace: dev
+rules:
+  - apiGroups: ["", "apps"]
+    resources: ["pods", "deployments", "services", "configmaps"]
+    verbs: ["get", "list", "watch", "create", "update", "patch"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get", "list"]
+---
+# Rôle "opérateur prod" - lecture + actions limitées en prod
+# (le déploiement en prod passe par le pipeline, pas par un accès direct
+# - voir 04-gouvernance/gitops-controle-gouvernance.md)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: prod-operator
+  namespace: prod
+rules:
+  - apiGroups: ["", "apps"]
+    resources: ["pods", "deployments", "services"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: [""]
+    resources: ["pods/log"]
+    verbs: ["get", "list"]
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["get", "list", "watch"]
+---
+# Rôle "admin plateforme" - accès large, réservé à l'équipe plateforme
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: platform-admin
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+# Binding - équipe applicative sur son namespace dev
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: app-developer-binding
+  namespace: dev
+subjects:
+  - kind: Group
+    name: equipe-applicative
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: app-developer
+  apiGroup: rbac.authorization.k8s.io
+---
+# Binding - équipe plateforme, accès admin cluster
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: platform-admin-binding
+subjects:
+  - kind: Group
+    name: equipe-plateforme
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: platform-admin
+  apiGroup: rbac.authorization.k8s.io
+
+# Note d'usage :
+# Le principe directeur : accès le plus restreint possible par défaut,
+# élargi uniquement sur demande justifiée (voir gouvernance-des-demandes.md).
+# Un accès admin large accordé "pour simplifier" est le premier pas
+# vers un cluster impossible à auditer.

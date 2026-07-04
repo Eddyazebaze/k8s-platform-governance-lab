@@ -1,0 +1,63 @@
+# namespaces.yaml
+# Base de namespaces réutilisable : séparation dev / prod / monitoring
+# avec quotas et labels de gouvernance de base.
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    environment: dev
+    managed-by: platform-team
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: prod
+  labels:
+    environment: prod
+    managed-by: platform-team
+    criticality: high
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    environment: shared
+    managed-by: platform-team
+---
+# Quota par défaut - namespace dev (self-service, limites basses)
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: default-quota
+  namespace: dev
+spec:
+  hard:
+    requests.cpu: "2"
+    requests.memory: 4Gi
+    limits.cpu: "4"
+    limits.memory: 8Gi
+    pods: "20"
+---
+# Quota par défaut - namespace prod (validé lors du provisioning,
+# voir gouvernance-des-demandes.md pour le processus d'ajustement)
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: default-quota
+  namespace: prod
+spec:
+  hard:
+    requests.cpu: "4"
+    requests.memory: 8Gi
+    limits.cpu: "8"
+    limits.memory: 16Gi
+    pods: "50"
+
+# Note d'usage :
+# Ces quotas sont un point de départ, pas une vérité universelle.
+# Le bon dimensionnement dépend de la charge réelle de chaque plateforme.
+# Voir 04-gouvernance/gouvernance-des-demandes.md pour le processus
+# de demande d'ajustement (catégorie "Spécifique").
