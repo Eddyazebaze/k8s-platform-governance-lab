@@ -1,8 +1,8 @@
-# GitOps comme contrôle de gouvernance — pas seulement un pipeline
+# GitOps comme contrôle de gouvernance - pas seulement un pipeline
 
 > Angle : un pipeline CI/CD GitOps (Jenkins + Argo CD) n'est pas qu'un mécanisme de déploiement.
 > Bien conçu, c'est un contrôle d'auditabilité au sens NIS2/DORA. Ce document explique pourquoi,
-> sans Jenkinsfile ni YAML — c'est un sujet de gouvernance, pas un tutoriel.
+> sans Jenkinsfile ni YAML - c'est un sujet de gouvernance, pas un tutoriel.
 
 ## Le principe qui change tout
 
@@ -28,7 +28,7 @@ GitOps répond structurellement à cette question :
 | L'état réel correspond-il à l'état déclaré ? | Détection de dérive automatique et continue |
 | Un changement non autorisé a-t-il eu lieu ? | Toute modification hors Git est écrasée et journalisée |
 
-Aucune de ces réponses ne nécessite un registre manuel tenu à jour par une équipe — c'est la
+Aucune de ces réponses ne nécessite un registre manuel tenu à jour par une équipe - c'est la
 différence entre une conformité **déclarative** (un document qui dit qu'on respecte la règle) et
 une conformité **structurelle** (une architecture qui rend la non-conformité difficile à produire
 silencieusement).
@@ -38,14 +38,14 @@ silencieusement).
 GitOps ne garantit l'auditabilité que si une discipline minimale est respectée : aucun accès
 `kubectl` direct en production pour modifier un état durable, et toute exception documentée comme
 telle. Une équipe qui contourne le contrôleur "pour aller vite" recrée exactement le problème que
-GitOps est censé résoudre — juste de façon moins visible.
+GitOps est censé résoudre - juste de façon moins visible.
 
 ## Ce que ça change pour un platform owner
 
 La question à poser n'est plus "avons-nous automatisé le déploiement ?" mais **"notre pipeline
 peut-il répondre à un auditeur sans préparation ?"**. Si la réponse nécessite de rassembler des
 logs de plusieurs outils différents, l'architecture GitOps n'est pas encore un contrôle de
-gouvernance — c'est encore juste un pipeline.
+gouvernance - c'est encore juste un pipeline.
 
 ---
-*Extrait du K8s Platform Governance Lab — [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
+*Extrait du K8s Platform Governance Lab - [github.com/Eddyazebaze](https://github.com/Eddyazebaze)*
