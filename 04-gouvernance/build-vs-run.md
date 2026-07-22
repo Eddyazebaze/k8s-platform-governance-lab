@@ -40,7 +40,7 @@ soit être refusée et redirigée vers de la documentation en self-service.
 ## Le test simple pour vérifier que ton partage Build/Run est sain
 
 Pose cette question à trois personnes différentes (plateforme, applicatif, manager) sur un même
-sujet - Qui prend en charge le diagnostic lorsqu’un pod reste en "CrashLoopBackOff" un vendredi soir ? Si elles ne convergent pas, le partage n'est pas défaillant sur le papier : il est
+sujet - Qui prend la main lorsqu’un service tombe un vendredi soir ? Si elles ne convergent pas, le partage n'est pas défaillant sur le papier : il est
 défaillant dans les têtes, ce qui est plus dangereux.
 
 ---
